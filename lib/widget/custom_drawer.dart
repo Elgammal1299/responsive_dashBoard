@@ -5,7 +5,7 @@ import 'package:responsive_app/utils/app_images.dart';
 import 'package:responsive_app/widget/active_and_inactive_item.dart';
 import 'package:responsive_app/widget/drawer_items_list_view.dart';
 import 'package:responsive_app/widget/user_info_list_tile.dart';
-
+ 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
 
@@ -19,35 +19,39 @@ class CustomDrawer extends StatelessWidget {
           SliverToBoxAdapter(
             child: UserInfoListTile(
               userInfoModel: UserInfoModel(
-                image: Assets.imagesAvatar3,
-                title: 'Lekan Okeowo',
-                subTitle: 'demo@gmail.com',
-              ),
+                  image: Assets.imagesAvatar3,
+                  title: 'Lekan Okeowo',
+                  subTitle: 'demo@gmail.com'),
             ),
           ),
-          SliverToBoxAdapter(child: SizedBox(height: 8)),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 8,
+            ),
+          ),
           DrawerItemsListView(),
           SliverFillRemaining(
             hasScrollBody: false,
             child: Column(
               children: [
-                Expanded(child: SizedBox(height: 20)),
+                Expanded(
+                    child: SizedBox(
+                  height: 20,
+                )),
                 InActiveDrawerItem(
                   drawerItemModel: DrawerItemModel(
-                    title: 'Setting system',
-                    image: Assets.imagesSettings,
-                  ),
+                      title: 'Setting system', image: Assets.imagesSettings),
                 ),
                 InActiveDrawerItem(
                   drawerItemModel: DrawerItemModel(
-                    title: 'Logout account',
-                    image: Assets.imagesLogout,
-                  ),
+                      title: 'Logout account', image: Assets.imagesLogout),
                 ),
-                SizedBox(height: 48),
+                SizedBox(
+                  height: 48,
+                )
               ],
             ),
-          ),
+          )
         ],
       ),
     );

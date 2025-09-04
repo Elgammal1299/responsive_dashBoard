@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:responsive_app/utils/size_config.dart';
 import 'package:responsive_app/widget/adaptive_layout_widget.dart';
 import 'package:responsive_app/widget/custom_drawer.dart';
+import 'package:responsive_app/widget/dashboard_desktop_layout.dart';
+import 'package:responsive_app/widget/dashboard_mobile_layout.dart';
+import 'package:responsive_app/widget/dashboard_tablet_layout.dart';
 
 class DashBoradView extends StatefulWidget {
   const DashBoradView({super.key});
@@ -22,18 +25,22 @@ class _DashBoradViewState extends State<DashBoradView> {
               elevation: 0,
               backgroundColor: const Color(0xFFFAFAFA),
               leading: IconButton(
-                onPressed: () {
-                  scaffoldKey.currentState!.openDrawer();
-                },
-                icon: const Icon(Icons.menu),
-              ),
+                  onPressed: () {
+                    scaffoldKey.currentState!.openDrawer();
+                  },
+                  icon: const Icon(Icons.menu)),
             )
           : null,
       backgroundColor: const Color(0xFFF7F9FA),
       drawer: MediaQuery.sizeOf(context).width < SizeConfig.tablet
           ? const CustomDrawer()
           : null,
-      body: CustomDrawer(),
+      body: 
+      AdaptiveLayout(
+        mobileLayout: (context) => const DashBoardMobileLayout(),
+        tabletLayout: (context) => const DashBoardTabletLayout(),
+        desktopLayout: (context) => const DashboardDesktopLayout(),
+      ),
     );
   }
 }

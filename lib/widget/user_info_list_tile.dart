@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_app/models/user_info_model.dart';
 import 'package:responsive_app/utils/app_styles.dart';
 
+
 class UserInfoListTile extends StatelessWidget {
   const UserInfoListTile({
     super.key,

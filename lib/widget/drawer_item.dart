@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_app/models/drawer_item_model.dart';
 import 'package:responsive_app/widget/active_and_inactive_item.dart';
-
 class DrawerItem extends StatelessWidget {
   const DrawerItem(
       {super.key, required this.drawerItemModel, required this.isActive});
