@@ -26,23 +26,52 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Flutter Demo Home Page')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            // Here you can add a counter or any other widget
-          ],
-        ),
+      backgroundColor: Colors.grey,
+      appBar: AppBar(leading: Icon(Icons.menu)),
+      body: CustomScrollView(
+        slivers: <Widget>[
+          // SliverToBoxAdapter(child: SizedBox(height: 100)),
+          CustomSliverGrid(),
+          CustomSliverList(),
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Add your onPressed code here!
-        },
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+    );
+  }
+}
+
+class CustomSliverGrid extends StatelessWidget {
+  const CustomSliverGrid({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverGrid.builder(
+      itemCount: 4,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 1.0,
+        mainAxisSpacing: 4.0,
+        crossAxisSpacing: 4.0,
       ),
+      itemBuilder: (BuildContext context, int index) {
+        return Card(child: Center(child: Text('Grid Item $index')));
+      },
+    );
+  }
+}
+
+class CustomSliverList extends StatelessWidget {
+  const CustomSliverList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverList.builder(
+      itemCount: 20,
+      itemBuilder: (constext, index) {
+        return ListTile(
+          title: Text('Sliver Item $index'),
+          leading: Icon(Icons.star),
+        );
+      },
     );
   }
 }
